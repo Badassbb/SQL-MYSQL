@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <title>Mon Site commerce php</title>
     <link rel="stylesheet" href="inc/css/style.css">
 </head>
+
 <body>
     <header>
         <div class="conteneur">
@@ -14,15 +16,30 @@
                 <a href="" title="Mon Site">MonSite.com</a>
             </div>
             <nav>
-                <a href="<?php echo RACINE_SITE;?>inscription.php">Inscription</a>
-                <a href="<?php echo RACINE_SITE;?>connexion.php">Connexion</a>
-                <a href="<?php echo RACINE_SITE;?>boutique.php">Boutique</a>
-                <a href="<?php echo RACINE_SITE;?>panier.php">Votre panier</a>
+                <?php
+                if (internauteEstConnecteEtEstAdmin()) {
+                    echo '<a href="' . RACINE_SITE . 'admin/gestion_membre.php">Gestion des membres</a>';
+                    echo '<a href="' . RACINE_SITE . 'admin/gestion_commande.php">Gestion des commandes</a>';
+                    echo '<a href="' . RACINE_SITE . 'admin/gestion_boutique.php">Gestion de la boutique</a>';
+                }
+                if (internauteEstConnecte()) {
+                    echo '<a href="' . RACINE_SITE . 'profil.php">Voir votre profil</a>';
+                    echo '<a href="' . RACINE_SITE . 'boutique.php">Accès à la boutique</a>';
+                    echo '<a href="' . RACINE_SITE . 'panier.php">Voir votre panier</a>';
+                    echo '<a href="' . RACINE_SITE . 'connexion.php?action=deconnexion">Se déconnecter</a>';
+                } else {
+                    echo '<a href="' . RACINE_SITE . 'inscription.php">Inscription</a>';
+                    echo '<a href="' . RACINE_SITE . 'connexion.php">Connexion</a>';
+                    echo '<a href="' . RACINE_SITE . 'boutique.php">Accès à la boutique</a>';
+                    echo '<a href="' . RACINE_SITE . 'panier.php">Voir votre panier</a>';
+                }
+                ?>
             </nav>
         </div>
     </header>
     <section>
         <div class="conteneur">
-    
+
 </body>
+
 </html>
