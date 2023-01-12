@@ -1,5 +1,5 @@
 <?php require_once("inc/init.inc.php");
-// -----------------------------TRAITEMENTS PHP--------------------------*/
+//--------------------------------- TRAITEMENTS PHP ---------------------------------//
 if (isset($_GET['action']) && $_GET['action'] == "deconnexion") {
     session_destroy();
 }
@@ -7,13 +7,13 @@ if (internauteEstConnecte()) {
     header("location:profil.php");
 }
 if ($_POST) {
-    // $contenu .="pseudo : " . $_POST['pseudo'] . "<br>mdp : " . $_POST['mdp'] . "";
-    $result = executeRequete("SELECT * FROM membre WHERE pseudo='$_POST[pseudo]'");
-    if ($result->num_rows != 0) {
-        // $contenu .= '<div style="background:green">pseudo connu!</div>';
-        $membre = $result->fetch_assoc();
+    // $contenu .=  "pseudo : " . $_POST['pseudo'] . "<br>mdp : " .  $_POST['mdp'] . "";
+    $resultat = executeRequete("SELECT * FROM membre WHERE pseudo='$_POST[pseudo]'");
+    if ($resultat->num_rows != 0) {
+        // $contenu .=  '<div style="background:green">pseudo connu!</div>';
+        $membre = $resultat->fetch_assoc();
         if ($membre['mdp'] == $_POST['mdp']) {
-            // $contenu .= '<div class="validation">mdp connu!</div>;
+            //$contenu .= '<div class="validation">mdp connu!</div>';
             foreach ($membre as $indice => $element) {
                 if ($indice != 'mdp') {
                     $_SESSION['membre'][$indice] = $element;
@@ -27,12 +27,10 @@ if ($_POST) {
         $contenu .= '<div class="erreur">Erreur de pseudo</div>';
     }
 }
-
-
-
-/*------------------------------AFFICHAGE HTML---------------------------*/
+//--------------------------------- AFFICHAGE HTML ---------------------------------//
 ?>
 <?php require_once("inc/haut.inc.php"); ?>
+<?php echo $contenu; ?>
 
 <form method="post" action="">
     <label for="pseudo">Pseudo</label><br>
@@ -42,6 +40,6 @@ if ($_POST) {
     <input type="text" id="mdp" name="mdp"><br><br>
 
     <input type="submit" value="Se connecter">
-
 </form>
+
 <?php require_once("inc/bas.inc.php"); ?>

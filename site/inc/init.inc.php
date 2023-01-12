@@ -8,7 +8,7 @@ if ($mysqli->connect_error) die('Un problème est survenu lors de la tentative d
 session_start();
  
 //--------- CHEMIN
-define("RACINE_SITE","site/");
+define("RACINE_SITE","");
  
 //--------- VARIABLES
 $contenu = '';
