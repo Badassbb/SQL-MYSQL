@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 10 jan. 2023 à 15:26
+-- Généré le : jeu. 12 jan. 2023 à 21:09
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -71,21 +71,22 @@ CREATE TABLE IF NOT EXISTS `membre` (
   `ville` varchar(30) NOT NULL,
   `code_postal` int(10) UNSIGNED ZEROFILL NOT NULL,
   `adresse` varchar(50) NOT NULL,
-  `status` int(1) NOT NULL DEFAULT '0',
+  `statut` int(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id_membre`),
   UNIQUE KEY `pseudo` (`pseudo`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `membre`
 --
 
-INSERT INTO `membre` (`id_membre`, `pseudo`, `mdp`, `nom`, `prenom`, `email`, `civilite`, `ville`, `code_postal`, `adresse`, `status`) VALUES
+INSERT INTO `membre` (`id_membre`, `pseudo`, `mdp`, `nom`, `prenom`, `email`, `civilite`, `ville`, `code_postal`, `adresse`, `statut`) VALUES
 (1, 'John', 'John', 'John', 'John', 'John@gmail.com', 'm', 'Montfaucon', 0000030150, '8 rue de la chocolaterie', 0),
 (2, 'Juju', 'soleil', 'Cottet', 'Julien', 'Julien.cottet@gmail.com', 'm', 'Paris', 0000075015, '300 rue de vaugirard', 0),
 (3, 'lamarie', 'planete', 'thoyer', 'marie', 'marie.thoyer@yahoo.fr', 'f', 'Lyon', 0000069003, '10 rue paul bert', 0),
 (4, 'fab', 'avatar13', 'grand', 'fabrice', 'fabrice.grand@gmail.com', 'm', 'Marseille', 0000013009, '70 rue de la r&eacute;publique', 0),
-(5, 'membre', 'membre', 'membre', 'membre', 'membre@exemple.com', 'f', 'Toulouse', 0000031000, '55 rue bayard', 0);
+(5, 'membre', 'membre', 'membre', 'membre', 'membre@exemple.com', 'f', 'Toulouse', 0000031000, '55 rue bayard', 0),
+(6, 'admin', 'admin', 'admin', 'admin', 'admin@exemple.com', 'm', 'Paris', 0000075015, '33 rue mademoiselle', 1);
 
 -- --------------------------------------------------------
 
@@ -108,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `produit` (
   `stock` int(3) NOT NULL COMMENT 'Ce champ correspond au stock restant du produit.',
   PRIMARY KEY (`id_produit`),
   UNIQUE KEY `reference` (`reference`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
