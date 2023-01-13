@@ -14,10 +14,9 @@ a {
 
 /**************************************************** HAUT ************************************************/
 header {
-
     background: #000000;
     padding: 5px;
-    text-align: left;
+    text-align: center;
 }
 
 header span {
@@ -32,7 +31,6 @@ header nav {
 }
 
 header a {
-
     color: #ffffff;
     text-decoration: none;
     padding: 5px;
@@ -72,7 +70,7 @@ footer {
 /**************************************************** BOUTIQUE ************************************************/
 .boutique-gauche {
     float: left;
-    left: 30%;
+    width : 30%;
     background: #f2f2f2;
     min-height: 500px;
     margin-right: 10%;
@@ -91,18 +89,18 @@ footer {
 }
 
 .boutique-gauche ul li a:hover {
-    background: #04baf6;
+    background: #777777;
     color: #fff;
 }
 
 .boutique-droite {
     float: left;
-    left: 60%;
+    width: 60%;
 }
 
 .boutique-produit {
     float: left;
-    left: 30%;
+    width: 30%;
     text-align: center;
     padding: 5%;
     border-bottom: 1px solid #c0c0c0;

@@ -32,7 +32,7 @@ if (!empty($_POST)) {   // debug($_POST);
     foreach ($_POST as $indice => $valeur) {
         $_POST[$indice] = htmlEntities(addSlashes($valeur));
     }
-    executeRequete("REPLACE INTO produit (id_produit, reference, categorie, titre, description, couleur, taille, public, photo, prix, stock) values ('$_POST[id_produit]', '$_POST[reference]', '$_POST[categorie]', '$_POST[titre]', '$_POST[description]', '$_POST[couleur]', '$_POST[taille]', '$_POST[public]',  '$photo_bdd',  '$_POST[prix]',  '$_POST[stock]')");
+    executeRequete("REPLACE INTO produit (reference, categorie, titre, description, couleur, taille, public, photo, prix, stock) values ('$_POST[reference]', '$_POST[categorie]', '$_POST[titre]', '$_POST[description]', '$_POST[couleur]', '$_POST[taille]', '$_POST[public]',  '$photo_bdd',  '$_POST[prix]',  '$_POST[stock]')");
     $contenu .= '<div class="validation">Le produit a été ajouté</div>';
     $_GET['action'] = 'affichage';
 }
