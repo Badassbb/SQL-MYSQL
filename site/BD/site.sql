@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 12 jan. 2023 à 21:09
+-- Généré le : ven. 13 jan. 2023 à 11:21
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -35,7 +35,16 @@ CREATE TABLE IF NOT EXISTS `commande` (
   `date_enregistrement` datetime NOT NULL,
   `etat` enum('en cours de traitement','envoyé','livré') NOT NULL,
   PRIMARY KEY (`id_commande`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `commande`
+--
+
+INSERT INTO `commande` (`id_commande`, `id_membre`, `montant`, `date_enregistrement`, `etat`) VALUES
+(1, 6, 20, '2023-01-13 09:48:49', 'en cours de traitement'),
+(2, 6, 0, '2023-01-13 09:55:57', 'en cours de traitement'),
+(3, 6, 20, '2023-01-13 09:56:06', 'en cours de traitement');
 
 -- --------------------------------------------------------
 
@@ -51,7 +60,15 @@ CREATE TABLE IF NOT EXISTS `details_commande` (
   `quantite` int(3) NOT NULL,
   `prix` int(3) NOT NULL,
   PRIMARY KEY (`id_details_commande`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `details_commande`
+--
+
+INSERT INTO `details_commande` (`id_details_commande`, `id_commande`, `id_produit`, `quantite`, `prix`) VALUES
+(1, 1, 3, 1, 20),
+(2, 3, 3, 1, 20);
 
 -- --------------------------------------------------------
 
@@ -109,7 +126,14 @@ CREATE TABLE IF NOT EXISTS `produit` (
   `stock` int(3) NOT NULL COMMENT 'Ce champ correspond au stock restant du produit.',
   PRIMARY KEY (`id_produit`),
   UNIQUE KEY `reference` (`reference`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `produit`
+--
+
+INSERT INTO `produit` (`id_produit`, `reference`, `categorie`, `titre`, `description`, `couleur`, `taille`, `public`, `photo`, `prix`, `stock`) VALUES
+(3, '12', 'tshirt', 'Tshirt Col V', 'qfgqeshqrhqH', 'rouge', 'XL', 'm', '/site/photo/12__tshirt rouge.jpg', 20, 250);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
