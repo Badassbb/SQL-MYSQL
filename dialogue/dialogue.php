@@ -19,7 +19,7 @@ if($_POST)
     }
 }
 //---------------------------------------------------------------------------------------------
-//Partie affichage des commentaires
+// Partie affichage des commentaires
 $résultat = $mysqli->query("SELECT pseudo, message, DATE_FORMAT(date_enregistrement, '%d/%m/%Y') AS datefr, DATE_FORMAT(date_enregistrement, '%H:%i:%s') AS heurefr FROM commentaire ORDER BY date_enregistrement DESC");    
 $contenu .= '<h2>'  . $résultat->num_rows . ' commentaire(s)';
 while($commentaire = $résultat->fetch_assoc())
@@ -51,3 +51,5 @@ while($commentaire = $résultat->fetch_assoc())
         </form>
     </body>   
 </html>
+
+
