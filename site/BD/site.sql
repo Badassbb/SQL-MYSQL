@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 13 jan. 2023 à 11:21
+-- Généré le : mar. 17 jan. 2023 à 08:01
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
